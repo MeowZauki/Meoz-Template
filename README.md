@@ -1,7 +1,7 @@
 
 <p align="center">
-  <a href="https://github.com/sfeorg/Nothing-Template" target="_blank" rel="noopener noreferrer">
-    <img src="https://github.com/sfeorg/Nothing-Template/blob/main/Liquid-Glass.jpg" title="Nothing-Template"/>
+  <a href="https://github.com/MeowZauki/Meoz-Template" target="_blank" rel="noopener noreferrer">
+    <img src="https://github.com/MeowZauki/Meoz-Template/blob/main/Liquid-Glass.jpg" title="Nothing-Template"/>
   </a>
 
 </p>
