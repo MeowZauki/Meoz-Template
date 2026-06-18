@@ -11,7 +11,7 @@ Faster and easier than ever :)
 # Installation Steps
 1. Download the template file:
 ```sh
-sudo wget -N -P /var/lib/rebecca/templates/ https://raw.githubusercontent.com/MeowZauki/Meoz-Template/main/index.html
+sudo wget -N -P /var/lib/rebecca/templates/subscription https://raw.githubusercontent.com/MeowZauki/Meoz-Template/main/index.html
 ```
 
 2.	Run the following commands in your server terminal:
