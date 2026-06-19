@@ -17,10 +17,6 @@
                 extend: {
                     fontFamily: {
                         sans: ['Vazirmatn', 'sans-serif'],
-                    },
-                    colors: {
-                        glass: 'rgba(255, 255, 255, 0.08)',
-                        glassBorder: 'rgba(255, 255, 255, 0.15)',
                     }
                 }
             }
@@ -28,93 +24,94 @@
     </script>
 
     <style>
-        /* --- Core Layout & Background --- */
         body {
             font-family: 'Vazirmatn', sans-serif !important;
-            background-color: #020617; /* Slate 950 */
-            color: #fff;
+            background-color: #0a0800;
+            color: #f5e6c8;
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
         }
 
-        /* Animated Liquid Background */
+        /* Gold Liquid Background */
         .bg-liquid {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
-            background: radial-gradient(circle at 50% 50%, #0f172a, #000);
+            background: radial-gradient(circle at 50% 50%, #110d00, #000);
             overflow: hidden;
         }
 
         .blob {
             position: absolute;
             border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.5;
+            filter: blur(90px);
+            opacity: 0.35;
             animation: float 10s infinite ease-in-out alternate;
         }
 
-        .blob-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: #4338ca; animation-duration: 12s; }
-        .blob-2 { bottom: -10%; right: -10%; width: 60vw; height: 60vw; background: #be185d; animation-duration: 15s; }
-        .blob-3 { top: 40%; left: 40%; width: 40vw; height: 40vw; background: #0891b2; animation-duration: 18s; }
+        .blob-1 { top: -10%; left: -10%; width: 55vw; height: 55vw; background: #b8860b; animation-duration: 12s; }
+        .blob-2 { bottom: -15%; right: -10%; width: 60vw; height: 60vw; background: #7c5c00; animation-duration: 16s; }
+        .blob-3 { top: 35%; left: 35%; width: 45vw; height: 45vw; background: #d4a017; animation-duration: 20s; }
 
         @keyframes float {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(20px, -20px) scale(1.1); }
+            0%   { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(15px, -20px) scale(1.08); }
         }
 
-        /* --- Liquid Glass Component --- */
+        /* Gold Glass Panel */
         .glass-panel {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-top: 1px solid rgba(255, 255, 255, 0.15);
-            border-left: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+            background: rgba(212, 160, 23, 0.04);
+            backdrop-filter: blur(24px) saturate(160%);
+            -webkit-backdrop-filter: blur(24px) saturate(160%);
+            border: 1px solid rgba(212, 160, 23, 0.12);
+            border-top: 1px solid rgba(255, 215, 80, 0.2);
+            border-left: 1px solid rgba(255, 215, 80, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255,215,0,0.07);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
+
         .glass-panel:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(212, 160, 23, 0.08);
+            border-color: rgba(255, 215, 80, 0.22);
         }
 
-        /* --- Typography & Effects --- */
+        /* Glitch / Title Text */
         .glitch-text {
             font-weight: 900;
-            background: linear-gradient(to right, #fff, #a5b4fc);
+            background: linear-gradient(135deg, #ffe566 0%, #d4a017 40%, #fff5c0 70%, #b8860b 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 20px rgba(79, 70, 229, 0.5);
+            background-clip: text;
+            text-shadow: none;
+            filter: drop-shadow(0 0 18px rgba(212,160,23,0.5));
             letter-spacing: -1px;
         }
 
         .neon-text {
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            text-shadow: 0 0 12px rgba(255, 215, 0, 0.25);
         }
 
-        /* --- Progress Bar --- */
+        /* Progress Bar */
         .progress-container {
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.5);
             border-radius: 999px;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.6);
         }
         .progress-fill {
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
-            background-size: 200% 200%;
-            animation: gradientMove 3s ease infinite;
+            background: linear-gradient(90deg, #b8860b, #ffd700, #d4a017, #ffe566);
+            background-size: 300% 100%;
+            animation: goldShimmer 3s ease infinite;
             border-radius: 999px;
-            box-shadow: 0 0 15px rgba(139, 92, 246, 0.6);
+            box-shadow: 0 0 18px rgba(212, 160, 23, 0.7);
         }
-        @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+        @keyframes goldShimmer {
+            0%   { background-position: 0% 50%; }
+            50%  { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
-        /* --- Status Badges --- */
+        /* Status Badges */
         .status-badge {
             display: inline-flex;
             align-items: center;
@@ -126,43 +123,71 @@
             border: 1px solid rgba(255,255,255,0.1);
         }
         .status-dot { margin-left: 6px; box-shadow: 0 0 8px currentColor; }
-        .status-active { background: rgba(16, 185, 129, 0.15); color: #34d399; border-color: rgba(16, 185, 129, 0.3); }
+        .status-active  { background: rgba(212,160,23,0.18); color: #ffd700; border-color: rgba(212,160,23,0.4); }
         .status-expired { background: rgba(239, 68, 68, 0.15); color: #f87171; border-color: rgba(239, 68, 68, 0.3); }
-        .status-disabled { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border-color: rgba(245, 158, 11, 0.3); }
-        .status-pending { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border-color: rgba(59, 130, 246, 0.3); }
-        /* New OnHold Style (Purple) */
-        .status-onhold { background: rgba(139, 92, 246, 0.15); color: #c4b5fd; border-color: rgba(139, 92, 246, 0.3); }
+        .status-disabled{ background: rgba(245,158,11,0.15);  color: #fbbf24; border-color: rgba(245,158,11,0.3); }
+        .status-onhold  { background: rgba(180,130,0,0.15);   color: #e5c55a; border-color: rgba(180,130,0,0.35); }
 
-        /* --- Accordion --- */
+        /* Accordion */
         .accordion-content {
             max-height: 0;
             opacity: 0;
             overflow: hidden;
             transition: max-height 0.4s cubic-bezier(0, 1, 0, 1), opacity 0.4s ease;
-            background: rgba(0, 0, 0, 0.2);
-            border-top: 1px solid rgba(255,255,255,0.05);
+            background: rgba(0, 0, 0, 0.25);
+            border-top: 1px solid rgba(212,160,23,0.08);
         }
         .accordion-content.active {
             opacity: 1;
             transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
         }
 
-        /* --- Custom Buttons --- */
+        /* Buttons */
         .btn-glass {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(212,160,23,0.05);
+            border: 1px solid rgba(212,160,23,0.12);
             backdrop-filter: blur(5px);
             transition: all 0.2s;
         }
-        .btn-glass:hover { background: rgba(255,255,255,0.1); transform: translateY(-1px); border-color: rgba(255,255,255,0.25); }
-        
-        /* --- Scrollbar --- */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.4); }
+        .btn-glass:hover {
+            background: rgba(212,160,23,0.12);
+            transform: translateY(-1px);
+            border-color: rgba(255,215,0,0.3);
+        }
 
-        /* Helpers */
+        /* Icon accent */
+        .gold-icon { color: #d4a017; filter: drop-shadow(0 0 8px rgba(212,160,23,0.5)); }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #ffd700, #b8860b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* User avatar ring */
+        .avatar-ring {
+            background: linear-gradient(135deg, #ffd700 0%, #b8860b 60%, #ffe566 100%);
+            padding: 2px;
+            border-radius: 1rem;
+        }
+        .avatar-inner {
+            background: #0f0a00;
+            border-radius: calc(1rem - 2px);
+            width: 100%; height: 100%;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(212,160,23,0.3); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(212,160,23,0.55); }
+
+        /* Config card gradient border */
+        .config-border-gold {
+            background: linear-gradient(135deg, rgba(212,160,23,0.25) 0%, rgba(180,130,0,0.1) 50%, rgba(212,160,23,0.2) 100%);
+        }
+
         .persian-num { font-feature-settings: "ss01"; }
         [x-cloak] { display: none !important; }
     </style>
@@ -170,7 +195,6 @@
 
 <body class="antialiased pb-10 select-none">
 
-    <!-- Background Animation -->
     <div class="bg-liquid">
         <div class="blob blob-1"></div>
         <div class="blob blob-2"></div>
@@ -178,25 +202,24 @@
     </div>
 
     <div class="container mx-auto px-4 py-6 max-w-lg min-h-screen flex flex-col relative z-10">
-        
+
         <!-- Header -->
         <header class="flex items-center justify-between h-20 mb-6">
             <div class="flex flex-col">
-                <h1 class="glitch-text text-3xl md:text-4xl tracking-tight">هیرو وی پی ان</h1>
-                <p class="text-gray-400 text-xs font-medium tracking-widest uppercase mt-1 opacity-80" data-translate="subtitle">اتصال امن و پرسرعت</p>
+                <h1 class="glitch-text text-3xl md:text-4xl tracking-tight">MEOZ VPN</h1>
+                <p class="text-amber-600/70 text-xs font-medium tracking-widest uppercase mt-1" data-translate="subtitle">اتصال امن و پرسرعت</p>
             </div>
 
             <div class="relative inline-block text-right">
-                <!-- Change: Removed hidden class to fix display issue -->
-                <button onclick="toggleLangDropdown()" id="lang-btn" class="glass-panel px-3 py-2 rounded-xl flex items-center gap-2 text-sm text-gray-200 hover:text-white group border-opacity-50">
-                    <i class="fa-solid fa-globe text-blue-400 group-hover:text-blue-300 transition"></i>
-                    <span id="current-lang-text" class="font-medium text-xs sm:text-sm">فارسی</span>
-                    <i class="fa-solid fa-chevron-down text-[10px] opacity-60"></i>
+                <button onclick="toggleLangDropdown()" id="lang-btn" class="glass-panel px-3 py-2 rounded-xl flex items-center gap-2 text-sm text-amber-200 hover:text-white group">
+                    <i class="fa-solid fa-globe gold-icon group-hover:text-amber-300 transition text-sm"></i>
+                    <span id="current-lang-text" class="font-medium text-xs">فارسی</span>
+                    <i class="fa-solid fa-chevron-down text-[10px] opacity-50"></i>
                 </button>
-                <div id="lang-menu" class="hidden absolute left-0 mt-2 w-32 rounded-xl glass-panel overflow-hidden z-50 animate-fadeIn backdrop-blur-xl">
+                <div id="lang-menu" class="hidden absolute left-0 mt-2 w-32 rounded-xl glass-panel overflow-hidden z-50 backdrop-blur-xl">
                     <div class="p-1">
-                        <button onclick="changeLang('fa')" class="block w-full text-right px-3 py-2 text-sm text-gray-300 hover:bg-white/10 hover:text-white rounded-lg transition">فارسی</button>
-                        <button onclick="changeLang('en')" class="block w-full text-right px-3 py-2 text-sm text-gray-300 hover:bg-white/10 hover:text-white rounded-lg transition">English</button>
+                        <button onclick="changeLang('fa')" class="block w-full text-right px-3 py-2 text-sm text-amber-200 hover:bg-amber-900/30 hover:text-white rounded-lg transition">فارسی</button>
+                        <button onclick="changeLang('en')" class="block w-full text-right px-3 py-2 text-sm text-amber-200 hover:bg-amber-900/30 hover:text-white rounded-lg transition">English</button>
                     </div>
                 </div>
             </div>
@@ -205,26 +228,32 @@
         <!-- User Card -->
         <div class="glass-panel rounded-[2rem] p-6 mb-8 relative overflow-hidden group">
             <!-- Inner Glow -->
-            <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500 rounded-full blur-[60px] opacity-20 pointer-events-none group-hover:opacity-30 transition duration-500"></div>
-            
+            <div class="absolute top-0 right-0 w-40 h-40 rounded-full blur-[70px] opacity-25 pointer-events-none group-hover:opacity-40 transition duration-500"
+                 style="background: radial-gradient(circle, #ffd700, transparent);"></div>
+            <div class="absolute bottom-0 left-0 w-32 h-32 rounded-full blur-[60px] opacity-15 pointer-events-none"
+                 style="background: radial-gradient(circle, #b8860b, transparent);"></div>
+
             <div class="relative z-10">
                 <div class="flex justify-between items-start mb-6">
                     <div class="flex items-center gap-4">
-                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600/40 to-purple-600/40 border border-white/20 flex items-center justify-center backdrop-blur-md shadow-[0_0_15px_rgba(59,130,246,0.3)]">
-                            <i class="fa-regular fa-user text-2xl text-white drop-shadow-lg"></i>
+                        <!-- Avatar with gold ring -->
+                        <div class="avatar-ring w-16 h-16 shrink-0">
+                            <div class="avatar-inner">
+                                <i class="fa-regular fa-user text-2xl" style="color: #d4a017;"></i>
+                            </div>
                         </div>
                         <div>
-                            <h2 class="text-2xl font-bold text-white dir-ltr text-right tracking-wide neon-text">{{ user.username }}</h2>
+                            <h2 class="text-2xl font-bold text-amber-100 dir-ltr text-right tracking-wide neon-text">{{ user.username }}</h2>
                             <div class="mt-2">
                                 {% if user.status == 'active' %}
                                     <span class="status-badge status-active">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse status-dot"></span>
+                                        <span class="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-pulse status-dot"></span>
                                         فعال
                                     </span>
                                 {% elif user.status == 'on_hold' %}
                                     <span class="status-badge status-onhold">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse status-dot"></span>
-                                       در انتظار اولین اتصال
+                                        <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse status-dot"></span>
+                                        در انتظار اولین اتصال
                                     </span>
                                 {% elif user.status == 'expired' %}
                                     <span class="status-badge status-expired">
@@ -239,7 +268,7 @@
                                 {% elif user.status == 'limited' %}
                                     <span class="status-badge status-expired">
                                         <span class="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse status-dot"></span>
-                                      پایان حجم
+                                        پایان حجم
                                     </span>
                                 {% else %}
                                     <span class="status-badge text-gray-400 border-gray-600 bg-gray-800/50">
@@ -252,11 +281,12 @@
                     </div>
                 </div>
 
+                <!-- Usage Bar -->
                 <div class="mb-6">
-                    <div class="flex justify-between text-xs mb-2 text-gray-300 font-medium px-1">
-                        <span data-translate="dataUsage" class="opacity-80">مصرف حجم</span>
-                        <span class="text-white persian-num-target font-bold" dir="rtl">
-    {{ user.used_traffic | bytesformat }} از {% if not user.data_limit %}نامحدود{% else %}{{ user.data_limit | bytesformat }}{% endif %}
+                    <div class="flex justify-between text-xs mb-2 px-1">
+                        <span class="text-amber-500/80 font-medium" data-translate="dataUsage">مصرف حجم</span>
+                        <span class="text-amber-200 font-bold persian-num-target" dir="rtl">
+                            {{ user.used_traffic | bytesformat }} از {% if not user.data_limit %}نامحدود{% else %}{{ user.data_limit | bytesformat }}{% endif %}
                         </span>
                     </div>
                     <div class="w-full progress-container h-2.5 overflow-hidden">
@@ -268,16 +298,19 @@
                     </div>
                 </div>
 
+                <!-- Stats -->
                 <div class="grid grid-cols-2 gap-3">
-                    <div class="bg-white/5 p-3 rounded-2xl text-center border border-white/5 backdrop-blur-sm hover:bg-white/10 transition">
-                        <div class="text-blue-200 text-[10px] mb-1 font-medium uppercase tracking-wider opacity-70" data-translate="expireDate">تاریخ انقضا</div>
-                        <div class="font-bold text-base dir-ltr text-white persian-num-target date-clean">
+                    <div class="p-3 rounded-2xl text-center border transition hover:border-amber-700/40"
+                         style="background:rgba(212,160,23,0.05); border-color:rgba(212,160,23,0.12);">
+                        <div class="text-amber-600/70 text-[10px] mb-1 font-medium uppercase tracking-wider" data-translate="expireDate">تاریخ انقضا</div>
+                        <div class="font-bold text-base text-amber-100 persian-num-target jalali-date">
                             {% if not user.expire %}∞{% else %}{{ user.expire | datetime }}{% endif %}
                         </div>
                     </div>
-                    <div class="bg-white/5 p-3 rounded-2xl text-center border border-white/5 backdrop-blur-sm hover:bg-white/10 transition">
-                        <div class="text-purple-200 text-[10px] mb-1 font-medium uppercase tracking-wider opacity-70" data-translate="remaining">روز های باقی مانده</div>
-                        <div class="font-bold text-base text-white persian-num-target">
+                    <div class="p-3 rounded-2xl text-center border transition hover:border-amber-700/40"
+                         style="background:rgba(212,160,23,0.05); border-color:rgba(212,160,23,0.12);">
+                        <div class="text-amber-600/70 text-[10px] mb-1 font-medium uppercase tracking-wider" data-translate="remaining">روزهای باقی‌مانده</div>
+                        <div class="font-bold text-base text-amber-100 persian-num-target">
                             {% if not user.expire %}∞{% else %}
                                 {% set remaining_days = ((user.expire - now().timestamp()) // (24 * 3600)) %}
                                 {{ remaining_days | int if (remaining_days | int) > -1 else 0 }} <span class="text-[10px] font-normal opacity-60" data-translate="days">روز</span>
@@ -289,46 +322,59 @@
         </div>
 
         <!-- Connection Guide -->
-        <h3 class="text-lg font-bold mb-4 flex items-center gap-3 px-2 text-white/90">
-            <span class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center border border-white/10 shadow-lg backdrop-blur-sm">
-                <i class="fa-solid fa-circle-nodes text-blue-400 text-sm"></i>
+        <h3 class="text-lg font-bold mb-4 flex items-center gap-3 px-2 text-amber-100/90">
+            <span class="w-8 h-8 rounded-full flex items-center justify-center border shadow-lg backdrop-blur-sm"
+                  style="background:rgba(212,160,23,0.1); border-color:rgba(212,160,23,0.2);">
+                <i class="fa-solid fa-circle-nodes gold-icon text-sm"></i>
             </span>
             <span data-translate="howTo">راهنمای اتصال</span>
         </h3>
 
         <div id="OsContainer" class="flex flex-col gap-3 mb-8">
-            
+
             <!-- Android -->
-            <div id="AndroidContainer" class="glass-panel rounded-2xl overflow-hidden group">
-                <button onclick="toggleAccordion('android-content')" class="w-full p-4 flex items-center justify-between hover:bg-white/5 transition active:scale-[0.99] duration-200">
+            <div class="glass-panel rounded-2xl overflow-hidden group">
+                <button onclick="toggleAccordion('android-content')" class="w-full p-4 flex items-center justify-between hover:bg-amber-900/10 transition active:scale-[0.99] duration-200">
                     <div class="flex items-center gap-4">
-                        <i class="fa-brands fa-android text-2xl text-green-400 drop-shadow-[0_0_10px_rgba(74,222,128,0.4)]"></i>
-                        <span class="font-bold text-lg text-white" data-translate="android">اندروید</span>
+                        <i class="fa-brands fa-android text-2xl" style="color:#4ade80; filter:drop-shadow(0 0 8px rgba(74,222,128,0.3));"></i>
+                        <span class="font-bold text-lg text-amber-100" data-translate="android">اندروید</span>
                     </div>
-                    <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition">
-                        <i id="icon-android-content" class="fa-solid fa-chevron-down text-xs text-white/70 transition-transform duration-300"></i>
+                    <div class="w-8 h-8 rounded-full flex items-center justify-center transition" style="background:rgba(212,160,23,0.08);">
+                        <i id="icon-android-content" class="fa-solid fa-chevron-down text-xs text-amber-400/70 transition-transform duration-300"></i>
                     </div>
                 </button>
                 <div id="android-content" class="accordion-content">
                     <div class="p-4 grid gap-3">
                         <div class="btn-glass p-3 rounded-xl flex items-center justify-between">
                             <div class="flex items-center gap-3">
-                                <span class="w-9 h-9 rounded-xl bg-pink-600/80 flex items-center justify-center text-white font-bold shadow-lg shadow-pink-600/20">H</span>
-                                <span class="font-bold text-gray-200 text-sm">Happ</span>
+                                <span class="w-9 h-9 rounded-xl bg-pink-600/80 flex items-center justify-center text-white font-bold shadow-lg">H</span>
+                                <span class="font-bold text-amber-200 text-sm">Happ</span>
                             </div>
                             <div class="flex gap-2">
-                                <a href="https://github.com/Happ-proxy/happ-android/releases/download/3.7.1/Happ.apk" class="px-3 py-1.5 bg-white/5 hover:bg-white/10 rounded-lg text-xs text-gray-300 border border-white/10 transition" data-translate="download">دانلود</a>
-                                <a id="android-happ" href="#" class="px-3 py-1.5 bg-gradient-to-r from-pink-600 to-pink-500 hover:from-pink-500 hover:to-pink-400 rounded-lg text-xs text-white shadow-lg shadow-pink-500/30 transition" data-translate="addToApp">افزودن</a>
+                                <a href="https://github.com/Happ-proxy/happ-android/releases/download/3.7.1/Happ.apk"
+                                   class="px-3 py-1.5 rounded-lg text-xs text-amber-300 border transition"
+                                   style="background:rgba(212,160,23,0.07); border-color:rgba(212,160,23,0.15);"
+                                   data-translate="download">دانلود</a>
+                                <a id="android-happ" href="#"
+                                   class="px-3 py-1.5 rounded-lg text-xs text-black font-bold shadow-lg transition"
+                                   style="background:linear-gradient(135deg,#ffd700,#b8860b);"
+                                   data-translate="addToApp">افزودن</a>
                             </div>
                         </div>
                         <div class="btn-glass p-3 rounded-xl flex items-center justify-between">
                             <div class="flex items-center gap-3">
                                 <span class="w-9 h-9 rounded-xl bg-gray-700 flex items-center justify-center text-white font-bold shadow-lg">V</span>
-                                <span class="font-bold text-gray-200 text-sm">v2rayNG</span>
+                                <span class="font-bold text-amber-200 text-sm">v2rayNG</span>
                             </div>
                             <div class="flex gap-2">
-                                <a href="https://github.com/2dust/v2rayNG/releases/latest/download/v2rayNG_1.8.5.apk" class="px-3 py-1.5 bg-white/5 hover:bg-white/10 rounded-lg text-xs text-gray-300 border border-white/10 transition" data-translate="download">دانلود</a>
-                                <a id="android-v2rayng" href="#" class="px-3 py-1.5 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 rounded-lg text-xs text-white shadow-lg shadow-blue-500/30 transition" data-translate="addToApp">افزودن</a>
+                                <a href="https://github.com/2dust/v2rayNG/releases/latest/download/v2rayNG_1.8.5.apk"
+                                   class="px-3 py-1.5 rounded-lg text-xs text-amber-300 border transition"
+                                   style="background:rgba(212,160,23,0.07); border-color:rgba(212,160,23,0.15);"
+                                   data-translate="download">دانلود</a>
+                                <a id="android-v2rayng" href="#"
+                                   class="px-3 py-1.5 rounded-lg text-xs text-black font-bold shadow-lg transition"
+                                   style="background:linear-gradient(135deg,#ffd700,#b8860b);"
+                                   data-translate="addToApp">افزودن</a>
                             </div>
                         </div>
                     </div>
@@ -336,50 +382,68 @@
             </div>
 
             <!-- iOS -->
-            <div id="iOSContainer" class="glass-panel rounded-2xl overflow-hidden group">
-                <button onclick="toggleAccordion('ios-content')" class="w-full p-4 flex items-center justify-between hover:bg-white/5 transition active:scale-[0.99] duration-200">
+            <div class="glass-panel rounded-2xl overflow-hidden group">
+                <button onclick="toggleAccordion('ios-content')" class="w-full p-4 flex items-center justify-between hover:bg-amber-900/10 transition active:scale-[0.99] duration-200">
                     <div class="flex items-center gap-4">
-                        <i class="fa-brands fa-apple text-2xl text-gray-200 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]"></i>
-                        <span class="font-bold text-lg text-white" data-translate="ios">آیفون</span>
+                        <i class="fa-brands fa-apple text-2xl text-gray-200" style="filter:drop-shadow(0 0 8px rgba(255,255,255,0.2));"></i>
+                        <span class="font-bold text-lg text-amber-100" data-translate="ios">آیفون</span>
                     </div>
-                    <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition">
-                        <i id="icon-ios-content" class="fa-solid fa-chevron-down text-xs text-white/70 transition-transform duration-300"></i>
+                    <div class="w-8 h-8 rounded-full flex items-center justify-center" style="background:rgba(212,160,23,0.08);">
+                        <i id="icon-ios-content" class="fa-solid fa-chevron-down text-xs text-amber-400/70 transition-transform duration-300"></i>
                     </div>
                 </button>
                 <div id="ios-content" class="accordion-content">
                     <div class="p-4 grid gap-3">
                         <div class="btn-glass p-3 rounded-xl flex items-center justify-between relative overflow-hidden">
-                            <div class="absolute right-0 top-0 bottom-0 w-1 bg-pink-500 shadow-[0_0_15px_#ec4899]"></div>
+                            <div class="absolute right-0 top-0 bottom-0 w-1" style="background:linear-gradient(to bottom,#ffd700,#b8860b); box-shadow:0 0 12px rgba(212,160,23,0.6);"></div>
                             <div class="flex items-center gap-3">
-                                <span class="w-9 h-9 rounded-xl bg-pink-600/80 flex items-center justify-center text-white font-bold shadow-lg shadow-pink-600/20">H</span>
+                                <span class="w-9 h-9 rounded-xl bg-pink-600/80 flex items-center justify-center text-white font-bold shadow-lg">H</span>
                                 <div>
-                                    <span class="font-bold text-gray-200 text-sm block">Happ Proxy</span>
-                                    <span class="text-[10px] text-pink-400 font-medium" data-translate="recommended">پیشنهادی</span>
+                                    <span class="font-bold text-amber-200 text-sm block">Happ Proxy</span>
+                                    <span class="text-[10px] font-medium" style="color:#d4a017;" data-translate="recommended">پیشنهادی</span>
                                 </div>
                             </div>
                             <div class="flex gap-2">
-                                <a href="https://apps.apple.com/us/app/happ-proxy-utility/id6504287215" class="px-3 py-1.5 bg-white/5 hover:bg-white/10 rounded-lg text-xs text-gray-300 border border-white/10 transition" data-translate="download">دانلود</a>
-                                <a id="ios-happ" href="#" class="px-3 py-1.5 bg-gradient-to-r from-pink-600 to-pink-500 hover:from-pink-500 hover:to-pink-400 rounded-lg text-xs text-white shadow-lg shadow-pink-500/30 transition" data-translate="addToApp">افزودن</a>
+                                <a href="https://apps.apple.com/us/app/happ-proxy-utility/id6504287215"
+                                   class="px-3 py-1.5 rounded-lg text-xs text-amber-300 border transition"
+                                   style="background:rgba(212,160,23,0.07); border-color:rgba(212,160,23,0.15);"
+                                   data-translate="download">دانلود</a>
+                                <a id="ios-happ" href="#"
+                                   class="px-3 py-1.5 rounded-lg text-xs text-black font-bold shadow-lg transition"
+                                   style="background:linear-gradient(135deg,#ffd700,#b8860b);"
+                                   data-translate="addToApp">افزودن</a>
                             </div>
                         </div>
                         <div class="btn-glass p-3 rounded-xl flex items-center justify-between">
                             <div class="flex items-center gap-3">
                                 <span class="w-9 h-9 rounded-xl bg-gray-700 flex items-center justify-center text-white font-bold shadow-lg">S</span>
-                                <span class="font-bold text-gray-200 text-sm">Streisand</span>
+                                <span class="font-bold text-amber-200 text-sm">Streisand</span>
                             </div>
                             <div class="flex gap-2">
-                                <a href="https://apps.apple.com/us/app/streisand/id6450650926" class="px-3 py-1.5 bg-white/5 hover:bg-white/10 rounded-lg text-xs text-gray-300 border border-white/10 transition" data-translate="download">دانلود</a>
-                                <a id="ios-streisand" href="#" class="px-3 py-1.5 bg-gradient-to-r from-gray-600 to-gray-500 hover:from-gray-500 hover:to-gray-400 rounded-lg text-xs text-white transition" data-translate="addToApp">افزودن</a>
+                                <a href="https://apps.apple.com/us/app/streisand/id6450650926"
+                                   class="px-3 py-1.5 rounded-lg text-xs text-amber-300 border transition"
+                                   style="background:rgba(212,160,23,0.07); border-color:rgba(212,160,23,0.15);"
+                                   data-translate="download">دانلود</a>
+                                <a id="ios-streisand" href="#"
+                                   class="px-3 py-1.5 rounded-lg text-xs text-black font-bold shadow-lg transition"
+                                   style="background:linear-gradient(135deg,#ffd700,#b8860b);"
+                                   data-translate="addToApp">افزودن</a>
                             </div>
                         </div>
                         <div class="btn-glass p-3 rounded-xl flex items-center justify-between">
                             <div class="flex items-center gap-3">
                                 <span class="w-9 h-9 rounded-xl bg-black border border-white/20 flex items-center justify-center text-white font-bold shadow-lg">V</span>
-                                <span class="font-bold text-gray-200 text-sm">V2Box</span>
+                                <span class="font-bold text-amber-200 text-sm">V2Box</span>
                             </div>
                             <div class="flex gap-2">
-                                <a href="https://apps.apple.com/us/app/v2box-v2ray-client/id6446814690" class="px-3 py-1.5 bg-white/5 hover:bg-white/10 rounded-lg text-xs text-gray-300 border border-white/10 transition" data-translate="download">دانلود</a>
-                                <a id="ios-v2box" href="#" class="px-3 py-1.5 bg-gradient-to-r from-gray-600 to-gray-500 hover:from-gray-500 hover:to-gray-400 rounded-lg text-xs text-white transition" data-translate="addToApp">افزودن</a>
+                                <a href="https://apps.apple.com/us/app/v2box-v2ray-client/id6446814690"
+                                   class="px-3 py-1.5 rounded-lg text-xs text-amber-300 border transition"
+                                   style="background:rgba(212,160,23,0.07); border-color:rgba(212,160,23,0.15);"
+                                   data-translate="download">دانلود</a>
+                                <a id="ios-v2box" href="#"
+                                   class="px-3 py-1.5 rounded-lg text-xs text-black font-bold shadow-lg transition"
+                                   style="background:linear-gradient(135deg,#ffd700,#b8860b);"
+                                   data-translate="addToApp">افزودن</a>
                             </div>
                         </div>
                     </div>
@@ -387,75 +451,104 @@
             </div>
 
             <!-- Windows -->
-            <div id="WindowsContainer" class="glass-panel rounded-2xl overflow-hidden group">
-                <button onclick="toggleAccordion('windows-content')" class="w-full p-4 flex items-center justify-between hover:bg-white/5 transition active:scale-[0.99] duration-200">
+            <div class="glass-panel rounded-2xl overflow-hidden group">
+                <button onclick="toggleAccordion('windows-content')" class="w-full p-4 flex items-center justify-between hover:bg-amber-900/10 transition active:scale-[0.99] duration-200">
                     <div class="flex items-center gap-4">
-                        <i class="fa-brands fa-windows text-2xl text-blue-400 drop-shadow-[0_0_10px_rgba(96,165,250,0.4)]"></i>
-                        <span class="font-bold text-lg text-white" data-translate="windows">ویندوز</span>
+                        <i class="fa-brands fa-windows text-2xl gold-icon"></i>
+                        <span class="font-bold text-lg text-amber-100" data-translate="windows">ویندوز</span>
                     </div>
-                    <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition">
-                        <i id="icon-windows-content" class="fa-solid fa-chevron-down text-xs text-white/70 transition-transform duration-300"></i>
+                    <div class="w-8 h-8 rounded-full flex items-center justify-center" style="background:rgba(212,160,23,0.08);">
+                        <i id="icon-windows-content" class="fa-solid fa-chevron-down text-xs text-amber-400/70 transition-transform duration-300"></i>
                     </div>
                 </button>
                 <div id="windows-content" class="accordion-content">
                     <div class="p-4 grid gap-3">
                         <div class="btn-glass p-3 rounded-xl flex items-center justify-between">
                             <div class="flex items-center gap-3">
-                                <span class="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center text-white font-bold shadow-lg shadow-blue-600/20">H</span>
-                                <span class="font-bold text-gray-200 text-sm">Hiddify</span>
+                                <span class="w-9 h-9 rounded-xl bg-blue-700 flex items-center justify-center text-white font-bold shadow-lg">H</span>
+                                <span class="font-bold text-amber-200 text-sm">Hiddify</span>
                             </div>
                             <div class="flex gap-2">
-                                <a href="https://github.com/hiddify/hiddify-next/releases/latest/download/Hiddify-Windows-Setup-x64.exe" class="px-3 py-1.5 bg-white/5 hover:bg-white/10 rounded-lg text-xs text-gray-300 border border-white/10 transition" data-translate="download">دانلود</a>
-                                <a id="windows-hiddify" href="#" class="px-3 py-1.5 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 rounded-lg text-xs text-white shadow-lg shadow-blue-500/30 transition" data-translate="addToApp">افزودن</a>
+                                <a href="https://github.com/hiddify/hiddify-next/releases/latest/download/Hiddify-Windows-Setup-x64.exe"
+                                   class="px-3 py-1.5 rounded-lg text-xs text-amber-300 border transition"
+                                   style="background:rgba(212,160,23,0.07); border-color:rgba(212,160,23,0.15);"
+                                   data-translate="download">دانلود</a>
+                                <a id="windows-hiddify" href="#"
+                                   class="px-3 py-1.5 rounded-lg text-xs text-black font-bold shadow-lg transition"
+                                   style="background:linear-gradient(135deg,#ffd700,#b8860b);"
+                                   data-translate="addToApp">افزودن</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
 
         <!-- My Configs -->
         <div class="flex items-center justify-between mb-4 px-2">
-            <h3 class="text-lg font-bold flex items-center gap-3 text-white">
-                <span class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center border border-white/10 shadow-lg backdrop-blur-sm">
-                     <i class="fa-solid fa-bolt text-yellow-400 text-sm"></i>
+            <h3 class="text-lg font-bold flex items-center gap-3 text-amber-100">
+                <span class="w-8 h-8 rounded-full flex items-center justify-center border shadow-lg backdrop-blur-sm"
+                      style="background:rgba(212,160,23,0.1); border-color:rgba(212,160,23,0.2);">
+                    <i class="fa-solid fa-bolt text-sm" style="color:#ffd700;"></i>
                 </span>
                 <span data-translate="myConfigs">کانفیگ‌های من</span>
             </h3>
-            <button id="copyAllBtn" class="flex items-center gap-2 px-4 py-2 bg-indigo-600/20 hover:bg-indigo-600/40 border border-indigo-500/30 text-indigo-100 text-xs md:text-sm rounded-xl transition shadow-[0_0_15px_rgba(79,70,229,0.2)] backdrop-blur-md group">
+            <button id="copyAllBtn"
+                    class="flex items-center gap-2 px-4 py-2 rounded-xl transition backdrop-blur-md text-xs md:text-sm border font-medium group"
+                    style="background:rgba(212,160,23,0.1); border-color:rgba(212,160,23,0.25); color:#e5c55a;">
                 <i class="fa-regular fa-copy group-hover:scale-110 transition"></i>
                 <span data-translate="copyAll">کپی همه</span>
             </button>
         </div>
-        
-        <div id="configs_section" class="w-full grid gap-4 mb-10">
-            <!-- Configs will be injected here via JS -->
-        </div>
 
+        <div id="configs_section" class="w-full grid gap-4 mb-10"></div>
     </div>
 
-    <!-- Toast Notification -->
-    <div id="toast" class="fixed bottom-10 left-1/2 transform -translate-x-1/2 bg-gray-900/90 text-white px-6 py-3 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] border border-white/10 transition-all duration-300 opacity-0 translate-y-10 z-[100] flex items-center gap-3 backdrop-blur-xl ring-1 ring-white/10">
-        <i class="fa-solid fa-circle-check text-green-400 drop-shadow-[0_0_8px_rgba(74,222,128,0.5)]"></i>
-        <span id="toast-message" class="font-medium text-sm">کپی شد!</span>
+    <!-- Toast -->
+    <div id="toast" class="fixed bottom-10 left-1/2 transform -translate-x-1/2 text-white px-6 py-3 rounded-2xl shadow-2xl border transition-all duration-300 opacity-0 translate-y-10 z-[100] flex items-center gap-3 backdrop-blur-xl"
+         style="background:rgba(20,14,0,0.92); border-color:rgba(212,160,23,0.25);">
+        <i class="fa-solid fa-circle-check" style="color:#ffd700; filter:drop-shadow(0 0 6px rgba(212,160,23,0.6));"></i>
+        <span id="toast-message" class="font-medium text-sm text-amber-100">کپی شد!</span>
     </div>
+
+    <!-- Jalali (Shamsi) Date Converter -->
+    <script>
+    // Lightweight Jalali converter – no external lib needed
+    function toJalali(gy, gm, gd) {
+        var g_d_m = [0,31,59,90,120,151,181,212,243,273,304,334];
+        var jy = gy <= 1600 ? 0 : 979;
+        gy -= gy <= 1600 ? 621 : 1600;
+        var gy2 = gm > 2 ? gy + 1 : gy;
+        var days = (365 * gy) + (Math.floor((gy2 + 3) / 4)) - (Math.floor((gy2 + 99) / 100))
+            + (Math.floor((gy2 + 399) / 400)) - 80 + gd + g_d_m[gm - 1];
+        jy += 33 * Math.floor(days / 12053); days %= 12053;
+        jy += 4 * Math.floor(days / 1461); days %= 1461;
+        if (days > 365) { jy += Math.floor((days - 1) / 365); days = (days - 1) % 365; }
+        var jm = days < 186 ? 1 + Math.floor(days / 31) : 7 + Math.floor((days - 186) / 30);
+        var jd = 1 + (days < 186 ? days % 31 : (days - 186) % 30);
+        return [jy, jm, jd];
+    }
+
+    function gregorianToJalaliStr(dateStr) {
+        // Expects "YYYY-MM-DD" or "YYYY-MM-DD HH:MM:SS"
+        if (!dateStr || dateStr.trim() === '∞') return '∞';
+        var parts = dateStr.trim().split(' ')[0].split('-');
+        if (parts.length < 3) return dateStr;
+        var j = toJalali(parseInt(parts[0]), parseInt(parts[1]), parseInt(parts[2]));
+        return j[0] + '/' + String(j[1]).padStart(2,'0') + '/' + String(j[2]).padStart(2,'0');
+    }
+    </script>
 
     <script>
-        // ========================
-        // Data & Variables
-        // ========================
         const sub = "{{ user.subscription_url }}";
         let fullUrl = `${window.location.origin}{{ user.subscription_url }}`;
         if (sub.startsWith("http")) fullUrl = sub;
-
-        const subLinks = "{{ user.links }}"; // Python list as string
+        const subLinks = "{{ user.links }}";
 
         const translations = {
             fa: {
                 subtitle: "اتصال امن و پرسرعت",
-                active: "فعال",
-                dataUsage: "مصرف داده",
+                dataUsage: "مصرف حجم",
                 expireDate: "تاریخ انقضا",
                 remaining: "روزهای باقی‌مانده",
                 days: "روز",
@@ -464,17 +557,15 @@
                 ios: "آیفون / آیپد",
                 windows: "ویندوز",
                 download: "دانلود",
-                addToApp: "افزودن به برنامه",
+                addToApp: "افزودن",
                 recommended: "پیشنهادی",
                 myConfigs: "کانفیگ‌های من",
                 copyAll: "کپی همه",
                 copied: "کپی شد!",
-                copyError: "خطا در کپی",
-                activeStatus: "فعال"
+                copyError: "خطا در کپی"
             },
             en: {
-                subtitle: "Secure and Fast Connection",
-                active: "Active",
+                subtitle: "Secure & Fast Connection",
                 dataUsage: "Data Usage",
                 expireDate: "Expire Date",
                 remaining: "Remaining Days",
@@ -484,113 +575,90 @@
                 ios: "iOS / iPadOS",
                 windows: "Windows",
                 download: "Download",
-                addToApp: "Add to App",
+                addToApp: "Add",
                 recommended: "Recommended",
                 myConfigs: "My Configs",
                 copyAll: "Copy All",
                 copied: "Copied!",
-                copyError: "Copy Failed",
-                activeStatus: "Active"
+                copyError: "Copy Failed"
             }
         };
 
         let currentLang = 'fa';
 
-        // ========================
-        // Helper Functions
-        // ========================
-        
-        // Extract Config Name
         function extractNameFromConfigURL(url) {
-            const namePattern = /#([^#]*)/;
-            const match = url.match(namePattern);
-            if (match) return decodeURIComponent(match[1]);
-            
+            const m = url.match(/#([^#]*)/);
+            if (m) return decodeURIComponent(m[1]);
             if (url.startsWith("vmess://")) {
-                try {
-                    const decodedString = atob(url.replace("vmess://", ""));
-                    return JSON.parse(decodedString).ps || "Config";
-                } catch(e) { return "Config"; }
+                try { return JSON.parse(atob(url.replace("vmess://",""))).ps || "Config"; } catch(e){}
             }
-            return "Config"; 
+            return "Config";
         }
 
-        // Convert English digits to Persian
         function toPersianDigits(str) {
-            if(!str) return "";
+            if (!str) return "";
             return str.toString().replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[d]);
         }
 
-        // Apply Persian Digits to Elements
         function applyPersianDigits() {
-            if (currentLang === 'en') {
-                 return;
-            }
+            if (currentLang === 'en') return;
             document.querySelectorAll('.persian-num-target').forEach(el => {
-                if(!el.dataset.original) el.dataset.original = el.innerText;
-                el.innerText = toPersianDigits(el.dataset.original);
-            });
-        }
-
-        // Clean Date (Remove time)
-        function cleanDates() {
-            document.querySelectorAll('.date-clean').forEach(el => {
-                let raw = el.innerText.trim();
-                if(raw && raw !== '∞') {
-                    const parts = raw.split(' ');
-                    if(parts.length > 0) el.innerText = parts[0]; 
+                if (!el.dataset.original) el.dataset.original = el.innerText;
+                // Don't convert Jalali dates stored as data-jalali
+                if (el.classList.contains('jalali-date') && el.dataset.jalali) {
+                    el.innerText = toPersianDigits(el.dataset.jalali);
+                } else {
+                    el.innerText = toPersianDigits(el.dataset.original);
                 }
             });
         }
 
-        // Toast Notification
-        function showToast(msg) {
-            const toast = document.getElementById('toast');
-            const msgEl = document.getElementById('toast-message');
-            msgEl.innerText = msg;
-            toast.classList.remove('opacity-0', 'translate-y-10');
-            setTimeout(() => {
-                toast.classList.add('opacity-0', 'translate-y-10');
-            }, 3000);
+        function convertJalaliDates() {
+            document.querySelectorAll('.jalali-date').forEach(el => {
+                var raw = el.innerText.trim();
+                if (raw && raw !== '∞') {
+                    var jalali = gregorianToJalaliStr(raw);
+                    el.dataset.jalali = jalali;
+                    el.dataset.original = jalali;
+                    el.innerText = jalali;
+                }
+            });
         }
 
-        // Copy to Clipboard
+        function showToast(msg) {
+            const t = document.getElementById('toast');
+            document.getElementById('toast-message').innerText = msg;
+            t.classList.remove('opacity-0','translate-y-10');
+            setTimeout(() => t.classList.add('opacity-0','translate-y-10'), 3000);
+        }
+
         function copyToClipboard(text) {
             if (!text) return;
-            const textArea = document.createElement("textarea");
-            textArea.value = text;
-            document.body.appendChild(textArea);
-            textArea.select();
+            const ta = document.createElement("textarea");
+            ta.value = text;
+            document.body.appendChild(ta);
+            ta.select();
             try {
                 document.execCommand("copy");
                 showToast(translations[currentLang].copied);
-            } catch (err) {
-                console.error("Copy failed", err);
+            } catch(e) {
                 showToast(translations[currentLang].copyError);
             } finally {
-                document.body.removeChild(textArea);
+                document.body.removeChild(ta);
             }
         }
 
-        // ========================
-        // UI Logic
-        // ========================
-
-        // Accordion Toggle
-        function toggleAccordion(contentId) {
-            const content = document.getElementById(contentId);
-            const icon = document.getElementById('icon-' + contentId);
-            
-            // Close others
+        function toggleAccordion(id) {
+            const content = document.getElementById(id);
+            const icon = document.getElementById('icon-' + id);
             document.querySelectorAll('.accordion-content').forEach(el => {
-                if(el.id !== contentId) {
+                if (el.id !== id) {
                     el.style.maxHeight = null;
                     el.classList.remove('active');
-                    const otherIcon = document.getElementById('icon-' + el.id);
-                    if(otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+                    const oi = document.getElementById('icon-' + el.id);
+                    if (oi) oi.style.transform = 'rotate(0deg)';
                 }
             });
-
             if (content.style.maxHeight) {
                 content.style.maxHeight = null;
                 content.classList.remove('active');
@@ -602,7 +670,6 @@
             }
         }
 
-        // Language Dropdown
         function toggleLangDropdown() {
             document.getElementById('lang-menu').classList.toggle('hidden');
         }
@@ -610,135 +677,103 @@
         function changeLang(lang) {
             currentLang = lang;
             const t = translations[lang];
-            
-            // Update Text
             document.querySelectorAll('[data-translate]').forEach(el => {
-                const key = el.getAttribute('data-translate');
-                if(t[key]) el.innerText = t[key];
+                const k = el.getAttribute('data-translate');
+                if (t[k]) el.innerText = t[k];
             });
-
-            // Update Direction
             document.documentElement.setAttribute('dir', lang === 'fa' ? 'rtl' : 'ltr');
             document.getElementById('current-lang-text').innerText = lang === 'fa' ? 'فارسی' : 'English';
-            
-            // Re-apply digits
-            if(lang === 'fa') {
+            if (lang === 'fa') {
                 applyPersianDigits();
             } else {
-                // Revert to original
-                 document.querySelectorAll('.persian-num-target').forEach(el => {
-                    if(el.dataset.original) el.innerText = el.dataset.original;
+                document.querySelectorAll('.persian-num-target').forEach(el => {
+                    if (el.dataset.original) el.innerText = el.dataset.original;
                 });
             }
-
             document.getElementById('lang-menu').classList.add('hidden');
         }
 
-        // ========================
-        // Initialization
-        // ========================
-
         document.addEventListener('DOMContentLoaded', () => {
-            
-            // 1. Setup Links for Add to App
-            const setHref = (id, url) => {
-                const el = document.getElementById(id);
-                if(el) el.href = url;
-            };
-
-            const happUrl = `happ://add/${fullUrl}`; 
-            
+            const setHref = (id, url) => { const el = document.getElementById(id); if(el) el.href = url; };
+            const happUrl = `happ://add/${fullUrl}`;
             setHref("android-v2rayng", `v2rayng://install-config?url=${fullUrl}`);
             setHref("android-happ", happUrl);
-            setHref("android-nekobox", `hiddify://install-config?url=${fullUrl}`);
-            
             setHref("ios-v2box", `v2box://install-sub?url=${fullUrl}&name=HeroVPN`);
             setHref("ios-streisand", `streisand://import/${fullUrl}`);
             setHref("ios-happ", happUrl);
-            
             setHref("windows-hiddify", `hiddify://install-config?url=${fullUrl}&name=HeroVPN`);
 
-            // 2. Render Configs (Liquid Glass Redesign)
+            // Render Configs
             const configsEl = document.getElementById("configs_section");
-            let cleanedString = subLinks.replace(/^\[|\]$/g, '').replace(/'/g, '');
-            
-            if(!cleanedString) {
+            let cleaned = subLinks.replace(/^\[|\]$/g,'').replace(/'/g,'');
+
+            if (!cleaned) {
                 configsEl.innerHTML = `
                     <div class="glass-panel p-6 rounded-2xl text-center flex flex-col items-center gap-3">
-                        <i class="fa-solid fa-ghost text-4xl text-white/20"></i>
-                        <span class="text-gray-400 text-sm">No configs available</span>
-                    </div>
-                `;
+                        <i class="fa-solid fa-ghost text-4xl" style="color:rgba(212,160,23,0.3);"></i>
+                        <span class="text-amber-700 text-sm">کانفیگی موجود نیست</span>
+                    </div>`;
             } else {
-                const configArray = cleanedString.split(', ');
+                const arr = cleaned.split(', ');
                 configsEl.innerHTML = '';
-                
-                configArray.forEach(cfg => {
-                    if(cfg.trim() === "") return;
+                arr.forEach(cfg => {
+                    if (!cfg.trim()) return;
                     const name = extractNameFromConfigURL(cfg);
-                    let iconClass = "fa-link";
-                    let protocolName = "LINK";
-                    
-                    if(cfg.startsWith("vless")) { iconClass = "fa-shield-cat"; protocolName = "VLESS"; }
-                    else if(cfg.startsWith("vmess")) { iconClass = "fa-paper-plane"; protocolName = "VMESS"; }
-                    else if(cfg.startsWith("trojan")) { iconClass = "fa-horse-head"; protocolName = "TROJAN"; }
-                    else if(cfg.startsWith("ss")) { iconClass = "fa-lock"; protocolName = "SHADOWSOCKS"; }
+                    let iconClass = "fa-link", proto = "LINK";
+                    if (cfg.startsWith("vless"))  { iconClass = "fa-shield-cat";  proto = "VLESS"; }
+                    else if (cfg.startsWith("vmess"))  { iconClass = "fa-paper-plane"; proto = "VMESS"; }
+                    else if (cfg.startsWith("trojan")) { iconClass = "fa-horse-head";  proto = "TROJAN"; }
+                    else if (cfg.startsWith("ss"))     { iconClass = "fa-lock";         proto = "SS"; }
 
                     configsEl.innerHTML += `
-                    <div class="relative group overflow-hidden rounded-2xl p-0.5 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(79,70,229,0.15)]">
-                        <!-- Animated Gradient Border Effect -->
-                        <div class="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 opacity-50 group-hover:opacity-100 transition duration-500"></div>
-                        
-                        <!-- Inner Card Content -->
-                        <div class="relative bg-[#0f172a]/90 backdrop-blur-xl rounded-2xl p-4 flex items-center justify-between h-full border border-white/5 group-hover:border-white/10 transition">
-                            
+                    <div class="relative group overflow-hidden rounded-2xl p-px transition-all duration-300 hover:-translate-y-1"
+                         style="box-shadow: 0 0 0 1px rgba(212,160,23,0.15); hover:box-shadow: 0 8px 30px rgba(212,160,23,0.12);">
+                        <div class="absolute inset-0 config-border-gold opacity-60 group-hover:opacity-100 transition duration-500"></div>
+                        <div class="relative backdrop-blur-xl rounded-2xl p-4 flex items-center justify-between h-full border"
+                             style="background:rgba(10,8,0,0.88); border-color:rgba(212,160,23,0.08);">
                             <div class="flex items-center gap-4 overflow-hidden">
-                                <!-- Liquid Icon Container -->
-                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500/10 to-purple-500/10 border border-white/5 flex items-center justify-center shrink-0 group-hover:scale-110 transition duration-300 shadow-[inset_0_0_15px_rgba(99,102,241,0.1)]">
-                                    <i class="fa-solid ${iconClass} text-xl bg-gradient-to-br from-indigo-300 to-purple-300 bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(167,139,250,0.3)]"></i>
+                                <div class="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition duration-300"
+                                     style="background:rgba(212,160,23,0.08); border:1px solid rgba(212,160,23,0.15); box-shadow:inset 0 0 15px rgba(212,160,23,0.07);">
+                                    <i class="fa-solid ${iconClass} text-xl" style="color:#d4a017; filter:drop-shadow(0 0 8px rgba(212,160,23,0.4));"></i>
                                 </div>
-                                
-                                <!-- Text Information -->
                                 <div class="flex flex-col min-w-0">
-                                    <span class="text-[10px] font-bold tracking-widest text-indigo-400/80 mb-0.5 uppercase">${protocolName}</span>
-                                    <span class="font-bold text-gray-100 truncate text-base dir-ltr tracking-wide group-hover:text-white transition">${name}</span>
+                                    <span class="text-[10px] font-bold tracking-widest mb-0.5 uppercase" style="color:rgba(212,160,23,0.6);">${proto}</span>
+                                    <span class="font-bold truncate text-base dir-ltr tracking-wide text-amber-100 group-hover:text-white transition">${name}</span>
                                 </div>
                             </div>
-
-                            <!-- Action Button -->
-                            <button onclick="copyToClipboard('${cfg}')" class="ml-3 w-10 h-10 rounded-xl bg-white/5 hover:bg-indigo-600/80 border border-white/10 hover:border-indigo-500/50 flex items-center justify-center text-gray-400 hover:text-white transition-all duration-200 shadow-lg group-active:scale-95">
-                                 <i class="fa-regular fa-copy text-sm"></i>
+                            <button onclick="copyToClipboard('${cfg}')"
+                                    class="ml-3 w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-200 group-active:scale-95 border"
+                                    style="background:rgba(212,160,23,0.07); border-color:rgba(212,160,23,0.18); color:#b8860b;"
+                                    onmouseover="this.style.background='rgba(212,160,23,0.25)';this.style.color='#ffd700';"
+                                    onmouseout="this.style.background='rgba(212,160,23,0.07)';this.style.color='#b8860b';">
+                                <i class="fa-regular fa-copy text-sm"></i>
                             </button>
                         </div>
-                    </div>
-                    `;
+                    </div>`;
                 });
             }
 
-            // 3. Copy All Handler
             document.getElementById('copyAllBtn').addEventListener('click', () => {
-                let allConfigs = cleanedString.split(', ').join('\n');
-                copyToClipboard(allConfigs);
+                let all = cleaned.split(', ').join('\n');
+                copyToClipboard(all);
             });
 
-            // 4. Initial Formatting
-            cleanDates();
+            // Convert dates to Jalali FIRST, then apply Persian digits
+            convertJalaliDates();
             applyPersianDigits();
 
-            // Auto detect OS
-            const userAgent = navigator.userAgent.toLowerCase();
-            if (userAgent.includes('android')) toggleAccordion('android-content');
-            else if (userAgent.includes('iphone') || userAgent.includes('ipad')) toggleAccordion('ios-content');
-            else if (userAgent.includes('win')) toggleAccordion('windows-content');
-            
-            // Close dropdown
+            // Auto-open OS section
+            const ua = navigator.userAgent.toLowerCase();
+            if (ua.includes('android')) toggleAccordion('android-content');
+            else if (ua.includes('iphone') || ua.includes('ipad')) toggleAccordion('ios-content');
+            else if (ua.includes('win')) toggleAccordion('windows-content');
+
             window.onclick = function(e) {
-                if (!e.target.matches('#lang-btn') && !e.target.closest('#lang-btn')) {
+                if (!e.target.closest('#lang-btn')) {
                     document.getElementById('lang-menu').classList.add('hidden');
                 }
-            }
+            };
         });
-
     </script>
 </body>
 </html>
