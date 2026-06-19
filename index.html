@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>{{ user.username }} - Hero VPN</title>
+    <title>{{ user.username }} - MEOZ VPN</title>
 
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -479,6 +479,22 @@
                                    data-translate="addToApp">افزودن</a>
                             </div>
                         </div>
+                        <div class="btn-glass p-3 rounded-xl flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <span class="w-9 h-9 rounded-xl bg-gray-700 flex items-center justify-center text-white font-bold shadow-lg">V</span>
+                                <span class="font-bold text-amber-200 text-sm">v2rayN</span>
+                            </div>
+                            <div class="flex gap-2">
+                                <a href="https://github.com/2dust/v2rayN/releases/latest/download/v2rayN-windows-64.zip"
+                                   class="px-3 py-1.5 rounded-lg text-xs text-amber-300 border transition"
+                                   style="background:rgba(212,160,23,0.07); border-color:rgba(212,160,23,0.15);"
+                                   data-translate="download">دانلود</a>
+                                <a id="windows-v2rayn" href="#"
+                                   class="px-3 py-1.5 rounded-lg text-xs text-black font-bold shadow-lg transition"
+                                   style="background:linear-gradient(135deg,#ffd700,#b8860b);"
+                                   data-translate="addToApp">افزودن</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -702,6 +718,7 @@
             setHref("ios-streisand", `streisand://import/${fullUrl}`);
             setHref("ios-happ", happUrl);
             setHref("windows-hiddify", `hiddify://install-config?url=${fullUrl}&name=HeroVPN`);
+            setHref("windows-v2rayn", `v2rayng://install-config?url=${fullUrl}`);
 
             // Render Configs
             const configsEl = document.getElementById("configs_section");
